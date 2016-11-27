@@ -1,0 +1,20 @@
+{
+  "name": "url-shortener-microservice",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11"
+  },
+  "author": "Long Doan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longdoan711/URL-Shortener-FreeCodeCamp/issues"
+  },
+  "homepage": "https://github.com/longdoan711/URL-Shortener-FreeCodeCamp#readme"
+}
