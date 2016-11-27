@@ -5,7 +5,7 @@ var mongo = require('mongodb').MongoClient;
 
 var mongoUrl = process.env.MONGOLAB_URI || "mongodb://localhost:27017/FreeCodeCamp";
 var port = process.env.PORT || 3000;
-var app_url = process.env.APP_URL || "https://urlshorten-hoanglong7421.heroku.com";
+var app_url = process.env.APP_URL || "https://urlshorten-hoanglong7421.heroku.com/";
 
 mongo.connect(mongoUrl, function(err, db) {
 	if (err) throw console.error(err);
@@ -50,7 +50,7 @@ mongo.connect(mongoUrl, function(err, db) {
 					console.log('Found', docs);
 					res.end(JSON.stringify({
 						"origin_url": url,
-						"short_url": app_url + "/" + docs[0]["_id"]
+						"short_url": app_url + docs[0]["_id"]
 					}));
 				} else {
 					var urlObj = {
@@ -61,7 +61,7 @@ mongo.connect(mongoUrl, function(err, db) {
 						if (err) throw err;
 						res.end(JSON.stringify({
 							"origin_url": url,
-							"short_url": app_url + "/" + urlObj["_id"]
+							"short_url": app_url + urlObj["_id"]
 						}));
 					});
 				}
