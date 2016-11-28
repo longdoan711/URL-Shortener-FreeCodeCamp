@@ -8,7 +8,7 @@ var port = process.env.PORT || 3000;
 var app_url = process.env.APP_URL || "https://urlshorten-hoanglong7421.heroku.com/";
 
 mongo.connect(mongoUrl, function(err, db) {
-	if (err) throw console.error(err);
+	if (err) throw err;
 	db.createCollection('urlShortener', {
 		capped: true,
 		size: 5242880,
@@ -45,7 +45,7 @@ mongo.connect(mongoUrl, function(err, db) {
 			urlShortener.find({
 				"origin_url": url
 			}).toArray(function(err, docs) {
-				if (err) throw console.error(err);
+				if (err) throw err;
 				if(docs && docs.length) {
 					console.log('Found', docs);
 					res.end(JSON.stringify({
